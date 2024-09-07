@@ -1,0 +1,45 @@
+
+<%- include ("partials/header.ejs") %>
+
+<style>
+  .hidden-text {display: none;}
+</style>
+
+
+<div class="container mt-5">
+  <div class="row">
+      <% cards.forEach(function(card) { %>
+          <div class="col-md-4">
+              <div class="card mb-4">
+                  <img src="<%= card.imageUrl %>" class="card-img-top" alt="<%= card.title %>">
+                  <div class="card-body">
+                      <h5 class="card-title"><%= card.title %></h5>
+                      <p class="card-text">
+                        <span class="short-text"><%= card.shortText %></span>
+                        <span class="hidden-text"><%= card.content %></span>
+                      </p>
+                      <button class="btn btn-primary show-more-btn">Read More</button>
+                  </div>
+              </div>
+          </div>
+      <% }) %>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+      $(document).on('click', '.show-more-btn', function() {
+        const cardBody = $(this).closest('.card-body');
+        const hiddenText = cardBody.find('.hidden-text');
+        const button = $(this);
+
+        if (hiddenText.is(':visible')) {
+          hiddenText.hide();
+          button.text('Read More');
+        } else {
+          hiddenText.show();
+          button.text('Show Less');
+        }
+      });
+  </script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Blog</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="px-4 py-5 my-5 text-center" bis_skin_checked="1">
+        <img class="d-block mx-auto mb-4" src="/images/logo.jpg" alt="" width="200" height="100">
+        <h1 class="display-5 fw-bold text-body-emphasis">#DoggyBlog</h1>
+        <div class="col-lg-6 mx-auto" bis_skin_checked="1">
+          <p class="lead mb-4">Bienvenido al blog donde podras encontrar info acerca de nuestros mejores amigos peludos y tambien contarnos sobre el tuyo!</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center" bis_skin_checked="1">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#addCardModal">Cuentanos de tu peludo!</button>
+          </div>
+        </div>
+    </div>
+    <div class="modal fade" id="addCardModal" tabindex="-1" aria-labelledby="addCardModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addCardModalLabel">Crear nueva tarjeta</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="/add-card" method="POST">
+                <div class="form-group">
+                  <label for="imageUrl">URL de la imagen</label>
+                  <input type="text" class="form-control" id="imageUrl" name="imageUrl" placeholder="URL de la imagen (opcional)">
+                </div>
+                <div class="form-group">
+                  <label for="title">Título</label>
+                  <input type="text" class="form-control" id="title" name="title" required placeholder="Título de la tarjeta">
+                </div>
+                <div class="form-group">
+                  <label for="shortText">Texto corto</label>
+                  <input type="text" class="form-control" id="shortText" name="shortText" required placeholder="Texto corto (ej. primera oración)">
+                </div>
+                <div class="form-group">
+                  <label for="fullText">Texto completo</label>
+                  <textarea class="form-control" id="fullText" name="fullText" rows="3" required placeholder="Texto completo"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Publicar Tarjeta</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
